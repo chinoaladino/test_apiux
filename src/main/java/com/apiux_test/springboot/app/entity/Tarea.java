@@ -3,6 +3,8 @@ package com.apiux_test.springboot.app.entity;
 
 import java.sql.Timestamp;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
