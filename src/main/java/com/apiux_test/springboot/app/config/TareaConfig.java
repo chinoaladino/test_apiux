@@ -23,9 +23,8 @@ public class TareaConfig {
 					"TAREA 2",
 					false
 				);
-			repository.saveAll(
-					List.of(tarea1,tarea2)
-					);
+			repository.save(tarea1);
+			repository.save(tarea2);
 			
 		};
 	}
