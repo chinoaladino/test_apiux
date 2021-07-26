@@ -4,6 +4,7 @@ package com.apiux_test.springboot.app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,15 +37,17 @@ public class TareaController {
 	}
 	
 	@PostMapping("/create")
-	public void registerNewTarea(@RequestParam String descripcion) {
+	public ResponseEntity<Object> registerNewTarea(@RequestParam String descripcion) {
 		Tarea tarea = new Tarea();
 		tarea.setDescripcion(descripcion);
 		tareaServiceImpl.addNewTarea(tarea);
+		return ResponseEntity.ok(Boolean.TRUE);
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public void deleteStudent(@PathVariable("id") Long id) {
+	public ResponseEntity<Object> deleteTarea(@PathVariable("id") Long id) {
 		tareaServiceImpl.deleteTarea(id);
+		return ResponseEntity.ok(Boolean.TRUE);
 	}
 	
 	@PutMapping("/update/{id}")
